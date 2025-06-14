@@ -65,3 +65,8 @@ resource "aws_iam_role_policy_attachment" "eventbridge" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEventBridgeFullAccess"
 }
 
+resource "aws_iam_role_policy_attachment" "dynamodb" {
+  role       = aws_iam_role.github_actions.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
+}
+
