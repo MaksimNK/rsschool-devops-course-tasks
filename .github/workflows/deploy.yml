@@ -15,9 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.12.2
       - name: Terraform Format Check
         run: terraform fmt -check
-
   terraform-plan:
     runs-on: ubuntu-latest
     steps:
