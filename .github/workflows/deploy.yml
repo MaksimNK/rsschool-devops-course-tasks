@@ -34,7 +34,7 @@ jobs:
           role-to-assume: arn:aws:iam::207567779149:role/GithubActionsRole
           aws-region: us-east-1
       - run: terraform init
-      - run: terraform plan
+      - run: terraform plan -var="ec2_ami=ami-054d6a336762e438e" -var="key_name=my-ssh"
 
   terraform-apply:
     needs: terraform-plan
@@ -51,4 +51,4 @@ jobs:
           role-to-assume: arn:aws:iam::207567779149:role/GithubActionsRole
           aws-region: us-east-1
       - run: terraform init
-      - run: terraform apply -auto-approve
+      - run: terraform apply -auto-approve -var="ec2_ami=ami-054d6a336762e438e" -var="key_name=my-ssh"
