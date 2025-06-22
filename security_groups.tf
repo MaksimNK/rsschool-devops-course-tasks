@@ -1,5 +1,5 @@
 resource "aws_security_group" "bastion_sg" {
-  name        = "sg-bastion"
+  name        = "bastion-sg"
   description = "Allow SSH to bastion"
   vpc_id      = aws_vpc.main.id
 
@@ -19,7 +19,7 @@ resource "aws_security_group" "bastion_sg" {
 }
 
 resource "aws_security_group" "private_nodes_sg" {
-  name        = "sg-private-nodes"
+  name        = "private-nodes-sg"
   description = "SG for private instances"
   vpc_id      = aws_vpc.main.id
 
@@ -48,7 +48,7 @@ resource "aws_security_group" "private_nodes_sg" {
 
 # NAT SG
 resource "aws_security_group" "nat" {
-  name        = "sg-nat-instance"
+  name        = "nat-instance-sg"
   description = "Allow traffic from private subnets to NAT"
   vpc_id      = aws_vpc.main.id
 
